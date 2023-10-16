@@ -1,0 +1,8 @@
+.navigation {
+  display: flex;
+  padding-inline: 3vw;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  border-bottom: 1px solid var(--mantine-color-dark-7);
+}

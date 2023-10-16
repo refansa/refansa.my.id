@@ -1,0 +1,12 @@
+html {
+  scroll-behavior: smooth;
+}
+
+/* Offset the anchor hashtag link
+ */
+:target::before {
+  content: '';
+  display: block;
+  height: 144px;
+  margin-top: -144px;
+}

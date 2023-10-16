@@ -1,19 +1,28 @@
 {
-  "name": "mantine-minimal-next-template",
+  "name": "portfolio",
   "version": "0.1.0",
   "private": true,
+  "author": {
+    "name": "Refansa",
+    "email": "m.refansa.am@gmail.com",
+    "url": "https://github.com/Refansa"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prettier": "prettier . \"./**/*.{js,jsx,ts,tsx}\" --write"
   },
   "dependencies": {
     "@mantine/core": "7.1.3",
     "@mantine/hooks": "7.1.3",
+    "@tabler/icons-react": "^2.39.0",
+    "framer-motion": "^10.16.4",
     "next": "13.4.4",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-intersection-observer": "^9.5.2"
   },
   "devDependencies": {
     "@types/node": "20.2.5",
@@ -21,9 +30,11 @@
     "@types/react-dom": "18.2.4",
     "eslint": "8.41.0",
     "eslint-config-next": "13.4.4",
+    "eslint-config-prettier": "^9.0.0",
     "postcss": "^8.4.24",
     "postcss-preset-mantine": "1.8.0",
     "postcss-simple-vars": "^7.0.1",
+    "prettier": "3.0.3",
     "typescript": "5.0.4"
   }
 }

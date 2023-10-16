@@ -1,0 +1,13 @@
+.title {
+  @mixin dark {
+    &[data-variant='curvy'] {
+      text-decoration-style: wavy;
+      text-decoration-color: var(--mantine-color-coffee-4);
+      text-decoration-line: underline;
+    }
+
+    &[data-variant='shadow'] {
+      text-shadow: 0.25rem 0.25rem var(--mantine-color-dark-4);
+    }
+  }
+}

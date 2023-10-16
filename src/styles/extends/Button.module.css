@@ -1,0 +1,9 @@
+.button {
+  transition: all linear 150ms;
+}
+
+.button {
+  &:active {
+    transform: scale(calc(0.95 * var(--mantine-scale)));
+  }
+}

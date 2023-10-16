@@ -1,11 +1,12 @@
 'use client'
 
-import { AppShell, Container, rem } from '@mantine/core'
+import { AppShell, Container, Stack, rem } from '@mantine/core'
 import Introduction from '../partials/Introduction'
 import About from '../partials/About'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import SlideUpWhenVisible from '../hooks/slideUpWhenVisible'
+import Experiences from '../partials/Experiences'
 
 export default function HomePage() {
   return (
@@ -18,13 +19,16 @@ export default function HomePage() {
         <Navbar />
       </AppShell.Header>
       <AppShell.Main>
-        <SlideUpWhenVisible>
+        <SlideUpWhenVisible threshold={0.2}>
           <Container
             size={rem(1920)}
             px={{ base: '0rem', lg: '4rem', xl: '8rem' }}>
-            <Introduction />
-            <About />
-            <Footer />
+            <Stack>
+              <Introduction />
+              <About />
+              <Experiences />
+              <Footer />
+            </Stack>
           </Container>
         </SlideUpWhenVisible>
       </AppShell.Main>

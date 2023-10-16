@@ -14,9 +14,7 @@ function About() {
   return (
     <Box
       id='about'
-      mt='xl'
-      mah='100vh'
-      h='100vh'>
+      my='xl'>
       <SimpleGrid
         cols={{ base: 1, sm: 2 }}
         spacing={{ base: 'sm', md: 'md', lg: 'lg' }}>

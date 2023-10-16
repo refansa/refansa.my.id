@@ -1,0 +1,15 @@
+.title {
+  font-weight: bold;
+}
+
+.content {
+  @mixin dark {
+    background-color: var(--mantine-color-dark-8);
+  }
+}
+
+.header {
+  @mixin dark {
+    background-color: var(--mantine-color-dark-8);
+  }
+}

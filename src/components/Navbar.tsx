@@ -3,6 +3,7 @@ import { Box, Group } from '@mantine/core'
 import classes from './Navbar.module.css'
 import NavIcon from './NavIcon'
 import NavLink from './NavLink'
+import NavMobile from './NavMobile'
 
 function Navbar() {
   return (
@@ -20,6 +21,7 @@ function Navbar() {
           href='https://github.com/Refansa?tab=repositories'
         />
       </Group>
+      <NavMobile />
     </Box>
   )
 }

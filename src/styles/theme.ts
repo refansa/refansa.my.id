@@ -6,7 +6,15 @@ import {
   createTheme,
 } from '@mantine/core'
 import { fluidDisplay, fluidTypography } from '../utils/typography'
-import { Button, Text, TextInput, Textarea, Title } from './extends'
+import {
+  Button,
+  Drawer,
+  Paper,
+  Text,
+  TextInput,
+  Textarea,
+  Title,
+} from './extends'
 
 const coffee: MantineColorsTuple = [
   '#fff4e5',
@@ -140,6 +148,8 @@ export const theme = createTheme({
   // Allows adding `classNames`, `styles` and `defaultProps` to any component
   components: {
     Button,
+    Drawer,
+    Paper,
     Text,
     Textarea,
     TextInput,

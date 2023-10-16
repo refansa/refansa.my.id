@@ -7,7 +7,7 @@ function Introduction() {
     <Box
       mt='xl'
       mah='100vh'
-      h='80vh'
+      h='100vh'
       className={classes.background}>
       <Flex
         align='center'

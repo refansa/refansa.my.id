@@ -1,4 +1,6 @@
 export { Button } from './Button'
+export { Drawer } from './Drawer'
+export { Paper } from './Paper'
 export { Text } from './Text'
 export { Textarea } from './Textarea'
 export { TextInput } from './TextInput'

@@ -1,3 +1,12 @@
 .grayscale {
   filter: grayscale(1);
 }
+
+/* Offset the anchor hashtag link
+ */
+.anchor:target::before {
+  content: '';
+  display: block;
+  height: 160px;
+  margin-top: -160px;
+}

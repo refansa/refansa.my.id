@@ -24,7 +24,7 @@ interface ItemGridProps {
   text: string
 }
 
-const ItemGrid = ({ icon, text }: ItemGridProps) => {
+const Item = ({ icon, text }: ItemGridProps) => {
   return (
     <Paper
       w={100}
@@ -64,67 +64,67 @@ export default function Experiences() {
             mt='xl'
             w={{ base: 240, sm: 480, md: 720, lg: 960 }}
             cols={{ base: 2, sm: 4, md: 6, lg: 8 }}>
-            <ItemGrid
+            <Item
               icon={<IconBrandHtml5 />}
               text='HTML'
             />
-            <ItemGrid
+            <Item
               icon={<IconBrandCss3 />}
               text='CSS'
             />
-            <ItemGrid
+            <Item
               icon={<IconBrandJavascript />}
               text='Javascript'
             />
-            <ItemGrid
+            <Item
               icon={<IconBrandPhp />}
               text='PHP'
             />
-            <ItemGrid
+            <Item
               icon={<IconBrandPython />}
               text='Python'
             />
-            <ItemGrid
+            <Item
               icon={<IconBrandMysql />}
               text='MySQL'
             />
-            <ItemGrid
+            <Item
               icon={<IconBrandLaravel />}
               text='Laravel'
             />
-            <ItemGrid
+            <Item
               icon={<IconBrandNodejs />}
               text='NodeJS'
             />
-            <ItemGrid
+            <Item
               icon={<IconBrandReact />}
               text='React'
             />
-            <ItemGrid
+            <Item
               icon={<IconBrandVue />}
               text='Vue'
             />
-            <ItemGrid
+            <Item
               icon={<IconBrandTailwind />}
               text='Tailwind'
             />
-            <ItemGrid
+            <Item
               icon={<IconBrandSass />}
               text='Sass'
             />
-            <ItemGrid
+            <Item
               icon={<IconBrandMantine />}
               text='Mantine'
             />
-            <ItemGrid
+            <Item
               icon={<IconBrandNextjs />}
               text='NextJS'
             />
-            <ItemGrid
+            <Item
               icon={<IconBrandPrisma />}
               text='Prisma'
             />
-            <ItemGrid
+            <Item
               icon={<IconBrandSupabase />}
               text='Supabase'
             />

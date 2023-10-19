@@ -21,7 +21,7 @@ export default function NavMobile() {
           />
           <NavLink
             content='Projects'
-            href='https://github.com/Refansa?tab=repositories'
+            href='/projects'
           />
         </Stack>
       </Drawer>

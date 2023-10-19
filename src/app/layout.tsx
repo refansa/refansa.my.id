@@ -12,7 +12,10 @@ export const metadata: Metadata = {
       url: 'https://github.com/Refansa',
     },
   ],
-  title: 'Refansa - Software Developer',
+  title: {
+    template: 'Refansa - Software Developer | %s',
+    default: 'Refansa - Software Developer',
+  },
   description: "Refansa's portfolio website",
   viewport: 'width=device-width, initial-scale=1',
   colorScheme: 'dark',

@@ -1,4 +1,5 @@
 import { Button } from '@mantine/core'
+import Link from 'next/link'
 import { MouseEventHandler } from 'react'
 
 interface NavLinkProps {
@@ -10,7 +11,7 @@ interface NavLinkProps {
 function NavLink({ content, href, onClick }: NavLinkProps) {
   return (
     <Button
-      component={'a'}
+      component={Link}
       variant='subtle'
       size='md'
       onClick={onClick}

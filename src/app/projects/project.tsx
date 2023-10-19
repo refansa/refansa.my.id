@@ -1,13 +1,15 @@
 'use client'
 
 import { AppShell, Container, Stack } from '@mantine/core'
-import Introduction from '../partials/Introduction'
-import About from '../partials/About'
-import Navbar from '../components/Navbar'
-import Footer from '../components/Footer'
-import Experiences from '../partials/Experiences'
+import Footer from '../../components/Footer'
+import Navbar from '../../components/Navbar'
+import Projects, { ProjectItemProps } from '../../partials/Projects'
 
-export default function HomePage() {
+export default function Project({
+  projectLists,
+}: {
+  projectLists: ProjectItemProps[]
+}) {
   return (
     <AppShell
       withBorder={false}
@@ -22,9 +24,7 @@ export default function HomePage() {
           size={1920}
           px={{ base: '0rem', lg: '4rem', xl: '8rem' }}>
           <Stack>
-            <Introduction />
-            <About />
-            <Experiences />
+            <Projects projectLists={projectLists} />
             <Footer />
           </Stack>
         </Container>

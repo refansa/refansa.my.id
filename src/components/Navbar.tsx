@@ -14,11 +14,11 @@ function Navbar() {
       <Group visibleFrom='sm'>
         <NavLink
           content='About'
-          href='/#about'
+          href='/'
         />
         <NavLink
           content='Projects'
-          href='https://github.com/Refansa?tab=repositories'
+          href='/projects'
         />
       </Group>
       <NavMobile />

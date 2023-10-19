@@ -14,10 +14,7 @@ import SlideUpWhenVisible from '../hooks/slideUpWhenVisible'
 function About() {
   return (
     <SlideUpWhenVisible>
-      <Box
-        id='about'
-        className={classes.anchor}
-        my='xl'>
+      <Box my='xl'>
         <SimpleGrid
           cols={{ base: 1, sm: 2 }}
           spacing={{ base: 'sm', md: 'md', lg: 'lg' }}>

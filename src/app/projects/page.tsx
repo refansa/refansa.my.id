@@ -6,7 +6,8 @@ export const metadata: Metadata = {
 }
 
 async function getProjectLists() {
-  const res = await fetch('http://localhost:3000/api/projects')
+  const baseURL = process.env.APP_URL ?? 'https://refansa.vercel.app'
+  const res = await fetch(`${baseURL}/api/projects`)
 
   if (!res.ok) throw new Error('Failed to fetch project lists.')
 

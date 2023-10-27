@@ -87,7 +87,8 @@ const ProjectItem = ({
             href={codeSrc}
             target='_blank'
             leftSection={<IconBrandGithub />}
-            variant='filled'>
+            variant='filled'
+            size='lg'>
             Source Code
           </Button>
         ) : null}

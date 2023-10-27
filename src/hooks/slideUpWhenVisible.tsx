@@ -12,7 +12,7 @@ export default function SlideUpWhenVisible({
   threshold?: number | number[]
 }) {
   const controls = useAnimation()
-  const [ref, inView] = useInView({ threshold: threshold ? threshold : 0.35 })
+  const [ref, inView] = useInView({ threshold: threshold ? threshold : 0 })
 
   useEffect(() => {
     if (inView) {

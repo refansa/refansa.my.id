@@ -1,4 +1,5 @@
 export { Button } from './Button'
+export { Card } from './Card'
 export { Drawer } from './Drawer'
 export { Paper } from './Paper'
 export { Text } from './Text'

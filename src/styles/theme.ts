@@ -8,6 +8,7 @@ import {
 import { fluidDisplay, fluidTypography } from '../utils/typography'
 import {
   Button,
+  Card,
   Drawer,
   Paper,
   Text,
@@ -148,6 +149,7 @@ export const theme = createTheme({
   // Allows adding `classNames`, `styles` and `defaultProps` to any component
   components: {
     Button,
+    Card,
     Drawer,
     Paper,
     Text,

@@ -11,11 +11,12 @@ import {
   Text,
   Title,
 } from '@mantine/core'
-import { IconSourceCode } from '@tabler/icons-react'
+import { IconBrandGithub } from '@tabler/icons-react'
 import SlideUpWhenVisible from '../hooks/slideUpWhenVisible'
+import NextImage from 'next/image'
 
 export interface ProjectItemProps {
-  alt?: string
+  alt: string
   codeSrc?: any
   description: string
   imgSrc?: any
@@ -34,15 +35,19 @@ const ProjectItem = ({
   return (
     <Card
       shadow='sm'
-      padding='lg'>
+      padding='lg'
+      withBorder>
       <Card.Section>
         <AspectRatio
           ratio={1366 / 609}
           mah={160}
           my='auto'>
           <Image
+            component={NextImage}
             src={imgSrc}
             alt={alt}
+            width={340}
+            height={160}
           />
         </AspectRatio>
       </Card.Section>
@@ -62,7 +67,7 @@ const ProjectItem = ({
               <Badge
                 key={title}
                 radius='xs'
-                variant='outline'>
+                variant='light'>
                 {tag}
               </Badge>
             )
@@ -75,17 +80,18 @@ const ProjectItem = ({
         mb='md'>
         {description}
       </Text>
-      {codeSrc ? (
-        <Button
-          mt='auto'
-          component='a'
-          href={codeSrc}
-          target='_blank'
-          leftSection={<IconSourceCode />}
-          variant='light'>
-          Source Code
-        </Button>
-      ) : null}
+      <Group mt='auto'>
+        {codeSrc ? (
+          <Button
+            component='a'
+            href={codeSrc}
+            target='_blank'
+            leftSection={<IconBrandGithub />}
+            variant='filled'>
+            Source Code
+          </Button>
+        ) : null}
+      </Group>
     </Card>
   )
 }

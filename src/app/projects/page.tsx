@@ -5,41 +5,16 @@ export const metadata: Metadata = {
   title: 'Projects',
 }
 
-const projectLists = [
-  {
-    title: 'AmanaTax',
-    description: 'A video course website to learn about taxes.',
-    imgSrc: '/assets/project-1.png',
-    alt: 'AmanaTax Homepage',
-    tags: ['internship project', 'laravel', 'completed'],
-  },
-  {
-    title: 'Koperasi',
-    description: 'Cooperatives website that accept online transactions.',
-    codeSrc: 'https://github.com/Refansa/koperasi',
-    imgSrc: '/assets/project-2.png',
-    alt: 'Koperasi Homepage',
-    tags: ['school project', 'vue.js', 'completed'],
-  },
-  {
-    title: 'RMBG',
-    description:
-      'Easily remove background from an image with one simple click.',
-    codeSrc: 'https://github.com/Refansa/rmbg',
-    imgSrc: '/assets/project-3.png',
-    alt: 'RMBG Website',
-    tags: ['personal project', 'react.js', 'completed'],
-  },
-  {
-    title: 'This Portfolio',
-    description: 'My own portfolio!',
-    codeSrc: 'https://github.com/Refansa/portfolio',
-    imgSrc: '/assets/project-4.png',
-    alt: 'Portfolio Homepage',
-    tags: ['personal project', 'react', 'in progress'],
-  },
-]
+async function getProjectLists() {
+  const res = await fetch('http://localhost:3000/api/projects')
 
-export default function ProjectLists() {
+  if (!res.ok) throw new Error('Failed to fetch project lists.')
+
+  return res.json()
+}
+
+export default async function Projects() {
+  const projectLists = await getProjectLists()
+
   return <Project projectLists={projectLists} />
 }

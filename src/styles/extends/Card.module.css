@@ -1,0 +1,7 @@
+.card {
+  @mixin dark {
+    &[data-with-border='true'] {
+      border-color: var(--mantine-color-dark-6);
+    }
+  }
+}

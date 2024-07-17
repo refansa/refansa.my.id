@@ -1,0 +1,77 @@
+{
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es2020": true,
+    "node": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2022,
+    "requireConfigFile": "false",
+    "sourceType": "module"
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": true,
+      "node": true
+    }
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:github/recommended",
+    "plugin:import/errors",
+    "prettier"
+  ],
+  "rules": {
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "packageDir": "."
+      }
+    ],
+    "import/extensions": "off",
+    "no-console": "off",
+    "github/array-foreach": "off",
+    "camelcase": "off",
+    "i18n-text/no-en": "off",
+    "no-shadow": "off",
+    "prefer-template": "off",
+    "filenames/match-regex": "off",
+    "no-constant-condition": "off",
+    "no-unused-vars": "off",
+    "github/no-then": "off",
+    "import/no-named-as-default-member": "off",
+    "one-var": "off",
+    "import/no-namespace": "off",
+    "import/no-anonymous-default-export": "off",
+    "object-shorthand": "off",
+    "eslint-comments/no-use": "off",
+    "no-empty": "off",
+    "prefer-const": "off",
+    "import/no-named-as-default": "off",
+    "eslint-comments/no-unused-disable": "off",
+    "no-useless-concat": "off",
+    "func-style": "off",
+    "eslint-comments/no-unlimited-disable": "off"
+  },
+  "overrides": [
+    {
+      "files": ["**/*.tsx", "**/*.ts"],
+      "parser": "@typescript-eslint/parser",
+      "plugins": ["@typescript-eslint", "primer-react", "jsx-a11y"],
+      "extends": [
+        "plugin:primer-react/recommended",
+        "plugin:jsx-a11y/recommended"
+      ],
+      "rules": {
+        "camelcase": "off",
+        "no-undef": "off",
+        "no-unused-vars": "off",
+        "no-use-before-define": "off",
+        "@typescript-eslint/no-unused-vars": "error",
+        "jsx-a11y/no-onchange": "off"
+      }
+    }
+  ],
+  "ignorePatterns": ["tmp/*", "!/.*", "/.next/"]
+}

@@ -1,0 +1,14 @@
+{
+    "overrides": [
+        {
+            "files": [
+                "**/*.{ts,tsx,js,mjs}"
+            ],
+            "options": {
+                "printWidth": 100,
+                "semi": false,
+                "singleQuote": true
+            }
+        }
+    ]
+}

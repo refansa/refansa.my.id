@@ -1,0 +1,40 @@
+import Anchor from '@/components/anchor'
+import TermWord from '@/components/term-word'
+import { Heading } from '@/components/ui/heading'
+
+export default function AboutSection() {
+  return (
+    <section className="flex flex-col gap-4 tracking-wider leading-relaxed text-xs md:text-base">
+      <Heading level={3}>A bit about me</Heading>
+      <p>
+        I'm a Software Developer from Jakarta, Indonesia 🇮🇩,{' '}
+        <TermWord description="Nice to meet you!">Senang berkenalan denganmu!</TermWord>
+      </p>
+      <p>
+        This is my humble internet abode, where I sometimes <Anchor href="/blog">blog</Anchor> about
+        programming, software development, game development, and some 3D modeling in my daily work.
+        But I mainly do web development, so that's probably what you will commonly see.
+      </p>
+      <p>
+        I love nothing more than diving into complex projects, but that doesn't mean I admire
+        complexity over simplicity, quite the contrary in fact. It always amaze me how people turn a
+        complex problems into a simple, digestable format for a simpleton like me to understand.
+      </p>
+      <p>
+        As a supporter of open source, I believe that sharing knowledge and collaborating on
+        projects is essential for the advancement of technologies.
+      </p>
+      <p>
+        Oh! And before I forget, I always have this urge to say that{' '}
+        <em className="text-foreground/50">
+          I use{' '}
+          <TermWord description="Arch Linux, a lightweight and flexible Linux® distribution that tries to Keep It Simple.">
+            <em>arch</em>
+          </TermWord>{' '}
+          btw
+        </em>
+        .
+      </p>
+    </section>
+  )
+}

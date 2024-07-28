@@ -52,7 +52,13 @@
     "eslint-comments/no-unused-disable": "off",
     "no-useless-concat": "off",
     "func-style": "off",
-    "eslint-comments/no-unlimited-disable": "off"
+    "eslint-comments/no-unlimited-disable": "off",
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ]
   },
   "overrides": [
     {

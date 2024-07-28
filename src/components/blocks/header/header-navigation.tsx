@@ -1,5 +1,8 @@
+'use client'
+
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
+import { usePathname } from 'next/navigation'
 
 import { MenuIcon, XIcon } from 'lucide-react'
 
@@ -30,10 +33,22 @@ const ThemeSwitch = dynamic(
 )
 
 export default function HeaderNavigation() {
+  const pathname = usePathname()
+
+  const smoothHeaderScroll = (e: any) => {
+    if (pathname === '/') {
+      e.preventDefault()
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      })
+    }
+  }
+
   return (
     <nav className="flex h-16 p-2 items-center">
       <div className="flex-1">
-        <Link href={'/'} className="font-bold text-xl">
+        <Link href={'/'} className="font-bold text-xl" onClick={smoothHeaderScroll}>
           Refansa
         </Link>
       </div>

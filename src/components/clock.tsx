@@ -7,7 +7,6 @@ export function Clock() {
     new Intl.DateTimeFormat('en-US', {
       hour: 'numeric',
       minute: 'numeric',
-      second: 'numeric',
       timeZone: 'Asia/Jakarta',
     }),
   )
@@ -18,7 +17,6 @@ export function Clock() {
         new Intl.DateTimeFormat('en-US', {
           hour: 'numeric',
           minute: 'numeric',
-          second: 'numeric',
           timeZone: 'Asia/Jakarta',
         }),
       )

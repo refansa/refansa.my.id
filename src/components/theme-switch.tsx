@@ -25,7 +25,7 @@ export function ThemeSwitch({
 }: Props) {
   let REACT_TOGGLE_DARK_MODE_GLOBAL_ID = starterId
 
-  const { theme, setTheme } = useTheme()
+  const { theme, systemTheme, setTheme } = useTheme()
 
   const [id, setId] = useState(REACT_TOGGLE_DARK_MODE_GLOBAL_ID)
 
@@ -33,6 +33,13 @@ export function ThemeSwitch({
     REACT_TOGGLE_DARK_MODE_GLOBAL_ID += 1
     setId(REACT_TOGGLE_DARK_MODE_GLOBAL_ID)
   }, [setId])
+
+  useEffect(() => {
+    // If the theme is currently using system theme, set the theme according to the system theme value.
+    if (theme === 'system') {
+      setTheme(systemTheme as 'dark' | 'light')
+    }
+  }, [])
 
   const properties = {
     circle: {

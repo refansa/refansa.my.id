@@ -1,6 +1,7 @@
 import '@/styles/globals.css'
 
 import type { Metadata, Viewport } from 'next'
+import { ReactNode } from 'react'
 
 import { siteConfig } from '@/config/site'
 
@@ -10,7 +11,7 @@ import { TooltipProvider } from '@/components/ui/tooltip'
 export const metadata: Metadata = {
   title: {
     default: siteConfig.name,
-    template: `${siteConfig.name} | %s`,
+    template: `%s | ${siteConfig.name}`,
   },
   metadataBase: new URL(siteConfig.url),
   description: siteConfig.description,
@@ -31,8 +32,8 @@ export const viewport: Viewport = {
   ],
 }
 
-interface RootLayoutProps {
-  children: React.ReactNode
+export interface RootLayoutProps {
+  children: ReactNode
 }
 
 export default function RootLayout({ children }: RootLayoutProps) {

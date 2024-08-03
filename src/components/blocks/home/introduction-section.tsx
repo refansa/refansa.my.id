@@ -5,6 +5,7 @@ import { Mail } from 'lucide-react'
 import { siteConfig } from '@/config/site'
 
 import { Button } from '@/components/ui/button'
+import TermWord from '@/components/term-word'
 
 export default function IntroductionSection() {
   return (
@@ -21,7 +22,11 @@ export default function IntroductionSection() {
       </span>
       <div className="mt-4 flex flex-col">
         <span className="text-lg md:text-2xl font-bold">
-          A Passionate, <i>self-taught</i> Software Developer
+          A Passionate,{' '}
+          <TermWord description="College is too expensive nowadays.">
+            <i>self-taught</i>
+          </TermWord>{' '}
+          Software Developer
         </span>
         <span className="text-lg md:text-2xl font-bold text-foreground/50">
           And a Patron of Open Source Software.

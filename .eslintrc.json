@@ -29,6 +29,7 @@
         "packageDir": "."
       }
     ],
+    "import/no-unresolved": "off",
     "import/extensions": "off",
     "no-console": "off",
     "github/array-foreach": "off",

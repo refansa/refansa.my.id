@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 
-import DefaultLayout from '@/components/layouts/DefaultLayout'
+import DefaultLayout from '@/components/layouts/default-layout'
 import PageNotFound from '@/components/blocks/error/page-not-found'
 
 export const metadata: Metadata = {

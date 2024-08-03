@@ -4,7 +4,7 @@ import { Heading } from '@/components/ui/heading'
 
 export default function AboutSection() {
   return (
-    <section className="flex flex-col gap-4 tracking-wider leading-relaxed text-xs md:text-base">
+    <section className="flex flex-col gap-4 tracking-wide leading-relaxed text-xs md:text-base">
       <Heading level={3}>A bit about me</Heading>
       <p>
         I'm a Software Developer from Jakarta, Indonesia 🇮🇩,{' '}

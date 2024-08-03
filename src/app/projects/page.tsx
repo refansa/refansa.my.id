@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 
-import DefaultLayout from '@/components/layouts/DefaultLayout'
+import DefaultLayout from '@/components/layouts/default-layout'
 import UnderConstruction from '@/components/blocks/error/under-construction'
 
 export const metadata: Metadata = {

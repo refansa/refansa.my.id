@@ -48,7 +48,7 @@ export default function HeaderNavigation() {
   return (
     <nav className="flex h-16 p-2 items-center">
       <div className="flex-1">
-        <Link href={'/'} className="font-bold text-xl" onClick={smoothHeaderScroll}>
+        <Link href="/" className="font-bold text-xl" onClick={smoothHeaderScroll}>
           Refansa
         </Link>
       </div>
@@ -56,8 +56,8 @@ export default function HeaderNavigation() {
         <Clock />
       </div>
       <div id="Desktop" className="flex-1 hidden md:flex gap-4 items-center justify-end">
-        <NavigationItem href="blog">Blog</NavigationItem>
-        <NavigationItem href="projects">Projects</NavigationItem>
+        <NavigationItem href="/blog">Blog</NavigationItem>
+        <NavigationItem href="/projects">Projects</NavigationItem>
         <ThemeSwitch />
       </div>
       <div id="Mobile" className="flex-1 flex md:hidden justify-end">
@@ -78,8 +78,8 @@ export default function HeaderNavigation() {
                 </SheetClose>
               </SheetTitle>
               <SheetDescription className="flex flex-col gap-2">
-                <NavigationItem href="blog">Blog</NavigationItem>
-                <NavigationItem href="projects">Projects</NavigationItem>
+                <NavigationItem href="/blog">Blog</NavigationItem>
+                <NavigationItem href="/projects">Projects</NavigationItem>
               </SheetDescription>
             </SheetHeader>
           </SheetContent>

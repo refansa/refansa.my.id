@@ -1,4 +1,4 @@
-import DefaultLayout from '@/components/layouts/DefaultLayout'
+import DefaultLayout from '@/components/layouts/default-layout'
 import IntroductionSection from '@/components/blocks/home/introduction-section'
 import AboutSection from '@/components/blocks/home/about-section'
 import ContactSection from '@/components/blocks/home/contact-section'

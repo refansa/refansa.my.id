@@ -5,7 +5,7 @@ import Anchor from '@/components/anchor'
 
 export default function ContactSection() {
   return (
-    <section className="flex flex-col gap-4 text-xs md:text-base tracking-wider leading-relaxed">
+    <section className="flex flex-col gap-4 text-xs md:text-base tracking-wide leading-relaxed">
       <Heading level={3}>Contact</Heading>
       <div className="flex flex-col gap-2">
         <span>

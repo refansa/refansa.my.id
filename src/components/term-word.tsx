@@ -1,8 +1,8 @@
-import { ReactNode } from 'react'
+import { HTMLAttributes, ReactNode } from 'react'
 
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
 
-export interface Props {
+export interface Props extends HTMLAttributes<HTMLSpanElement> {
   children: ReactNode
   /**
    * The description of the term word.
@@ -10,14 +10,16 @@ export interface Props {
   description: string
 }
 
-export default function TermWord({ children, description }: Props) {
+export default function TermWord({ children, description, ...rest }: Props) {
   return (
     <Tooltip>
       <TooltipTrigger>
-        <span className="underline decoration-dashed underline-offset-2">{children}</span>
+        <span className="underline decoration-dashed underline-offset-2" {...rest}>
+          {children}
+        </span>
       </TooltipTrigger>
       <TooltipContent>
-        <span className="not-italic">{description}</span>
+        <span className="not-italic font-normal">{description}</span>
       </TooltipContent>
     </Tooltip>
   )

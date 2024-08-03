@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 
-import Header from '@/components/blocks/header/header'
+import DefaultLayout from '@/components/layouts/DefaultLayout'
 import PageNotFound from '@/components/blocks/error/page-not-found'
 
 export const metadata: Metadata = {
@@ -9,11 +9,10 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <div className="max-w-screen-lg w-full mx-auto px-6">
-      <Header />
+    <DefaultLayout>
       <main className="flex justify-center items-center h-[85vh]">
         <PageNotFound />
       </main>
-    </div>
+    </DefaultLayout>
   )
 }

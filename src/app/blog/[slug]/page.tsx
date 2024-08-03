@@ -8,7 +8,8 @@ import { notFound } from 'next/navigation'
 
 import { components } from '@/components/mdx-components'
 
-const BLOG_PATH = path.join('src', 'contents', 'posts')
+const ROOT_PATH = process.cwd()
+const BLOG_PATH = path.join(ROOT_PATH, 'src', 'contents', 'posts')
 
 export interface Props {
   params: {

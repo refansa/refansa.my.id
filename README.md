@@ -1,5 +1,5 @@
 > [!NOTE]
-> Mirrorred from gitea.tumbleweed.my.id/refansa/refansa.my.id
+> Mirrorred from git.thumbleweed.com/refansa/refansa.my.id
 
 # Site - [refansa.my.id](https://refansa.my.id)
 

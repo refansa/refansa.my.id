@@ -1,4 +1,3 @@
-import Anchor from '@/components/anchor'
 import TermWord from '@/components/term-word'
 import { Heading } from '@/components/ui/heading'
 

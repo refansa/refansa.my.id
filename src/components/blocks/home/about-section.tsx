@@ -7,13 +7,13 @@ export default function AboutSection() {
     <section className="flex flex-col gap-4 tracking-wide leading-relaxed text-xs md:text-base">
       <Heading level={3}>A bit about me</Heading>
       <p>
-        I'm a Software Developer from Jakarta, Indonesia 🇮🇩,{' '}
+        I'm a Software Developer from Jakarta, Indonesia 🇮🇩.{' '}
         <TermWord description="Nice to meet you!">Senang berkenalan denganmu!</TermWord>
       </p>
       <p>
-        This is my humble internet abode, where I sometimes <Anchor href="/blog">blog</Anchor> about
-        programming, software development, game development, and some 3D modeling in my daily work.
-        But I mainly do web development, so that's probably what you will commonly see.
+        This is my humble internet abode, where I sometimes blog about 
+        programming, software development, game development, and 3D modeling as part of my daily work. 
+        However, I mainly do web development, so that’s probably what you will commonly see.
       </p>
       <p>
         I love nothing more than diving into complex projects, but that doesn't mean I admire

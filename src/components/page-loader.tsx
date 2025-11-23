@@ -9,7 +9,7 @@ export function PageLoader() {
     // Wait for providers to hydrate
     const timer = setTimeout(() => {
       setIsLoading(false)
-    }, 1000)
+    }, 1500)
 
     return () => clearTimeout(timer)
   }, [])
@@ -97,7 +97,7 @@ export function PageLoader() {
             <rect x="250" y="80" width="60" height="20" rx="4" fill="currentColor" />
           </g>
         </svg>
-        <span className="text-sm font-medium text-muted-foreground">Loading...</span>
+        <span className="text-sm font-medium text-muted-foreground">Scribbling the page...</span>
       </div>
       <style
         dangerouslySetInnerHTML={{
@@ -124,16 +124,19 @@ export function PageLoader() {
         @keyframes write {
           0% { transform: translate(0, 0) rotate(0deg); }
           
-          /* Move to start position (120, 220) */
-          /* Delta: 120-280=-160, 220-300=-80 */
+          /* Start: (120, 220) -> (-160, -80) */
           15% { transform: translate(-160px, -80px) rotate(-15deg); }
           
-          /* Midpoint of curve approx (180, 200) */
-          /* Delta: 180-280=-100, 200-300=-100 */
-          32% { transform: translate(-100px, -100px) rotate(-5deg); }
+          /* Peak 1: (150, 200) -> (-130, -100) */
+          24% { transform: translate(-130px, -100px) rotate(-5deg); }
           
-          /* End position (240, 220) */
-          /* Delta: 240-280=-40, 220-300=-80 */
+          /* Inflection: (180, 220) -> (-100, -80) */
+          32% { transform: translate(-100px, -80px) rotate(5deg); }
+          
+          /* Dip 2: (210, 240) -> (-70, -60) */
+          41% { transform: translate(-70px, -60px) rotate(-5deg); }
+          
+          /* End: (240, 220) -> (-40, -80) */
           50% { transform: translate(-40px, -80px) rotate(-15deg); }
           
           /* Lift and return */

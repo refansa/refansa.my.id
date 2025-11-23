@@ -13,8 +13,8 @@ export interface Props extends HTMLAttributes<HTMLSpanElement> {
 export default function TermWord({ children, description, ...rest }: Props) {
   return (
     <Tooltip>
-      <TooltipTrigger>
-        <span className="underline decoration-dashed underline-offset-2" {...rest}>
+      <TooltipTrigger asChild>
+        <span className="underline decoration-dashed underline-offset-2 cursor-help" {...rest}>
           {children}
         </span>
       </TooltipTrigger>

@@ -18,7 +18,7 @@ export default function IntroductionSection() {
         className="text-5xl md:text-7xl font-bold"
         style={{ textShadow: '3px 3px hsla(var(--primary) / 0.4)' }}
       >
-        I'm Refansa
+        I&apos;m Refansa
       </span>
       <div className="mt-4 flex flex-col">
         <span className="text-lg md:text-2xl font-bold">

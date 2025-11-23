@@ -8,6 +8,7 @@ import { siteConfig } from '@/config/site'
 import { ThemeProvider } from '@/components/providers/theme-provider'
 import { LanguageProvider } from '@/components/providers/language-provider'
 import { TooltipProvider } from '@/components/ui/tooltip'
+import { PageLoader } from '@/components/page-loader'
 
 export const metadata: Metadata = {
   title: {
@@ -50,6 +51,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         >
           <LanguageProvider>
             <TooltipProvider>
+              <PageLoader />
               <div className="relative flex min-h-screen flex-col bg-background">{children}</div>
             </TooltipProvider>
           </LanguageProvider>

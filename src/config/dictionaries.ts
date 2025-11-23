@@ -33,6 +33,11 @@ export type Dictionary = {
       tel: string
     }
   }
+  underConstruction: {
+    title: string
+    message: string
+    goHome: string
+  }
   notFound: {
     title: string
     message: string
@@ -83,6 +88,11 @@ export const en: Dictionary = {
       tel: 'Tel',
     },
   },
+  underConstruction: {
+    title: 'Not Implemented',
+    message: 'Sorry! The page is currently under construction.',
+    goHome: 'Go Home',
+  },
   notFound: {
     title: 'Not Found',
     message: "You are trying to access a page that doesn't exist.",
@@ -132,6 +142,11 @@ export const id: Dictionary = {
       email: 'Email',
       tel: 'Telepon',
     },
+  },
+  underConstruction: {
+    title: 'Belum Diimplementasi',
+    message: 'Maaf! Halaman ini sedang dalam tahap pengembangan.',
+    goHome: 'Kembali ke Beranda',
   },
   notFound: {
     title: 'Tidak Ditemukan',

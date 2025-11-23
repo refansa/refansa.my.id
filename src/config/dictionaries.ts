@@ -127,7 +127,7 @@ export const id: Dictionary = {
       niceToMeetYou: 'Nice to meet you!',
       niceToMeetYouDesc: 'Senang berkenalan denganmu!',
       humbleAbode:
-        'Ini adalah my humble internet abode, di mana saya terkadang menulis blog tentang pemrograman, pengembangan perangkat lunak, pengembangan game, dan pemodelan 3D sebagai bagian dari pekerjaan sehari-hari saya. Namun, saya terutama melakukan pengembangan web, jadi mungkin itu yang akan sering Anda lihat.',
+        'Ini adalah tempat bernaung sederhana saya di internet, di mana saya terkadang menulis blog tentang pemrograman, pengembangan perangkat lunak, pengembangan game, dan pemodelan 3D sebagai bagian dari pekerjaan sehari-hari saya. Namun, saya terutama melakukan pengembangan web, jadi mungkin itu yang akan sering Anda lihat.',
       loveComplexity:
         'Saya paling suka mendalami project-project kompleks, tetapi itu tidak berarti saya mengagumi kerumitan di atas kesederhanaan, justru sebaliknya. Saya selalu kagum bagaimana orang mengubah masalah yang kompleks menjadi format yang sederhana dan mudah dicerna untuk seorang simpleton seperti saya.',
       openSource:

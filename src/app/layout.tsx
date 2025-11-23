@@ -91,6 +91,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html lang="en" suppressHydrationWarning>
       <head>
         <StructuredData />
+        <meta
+          name="google-site-verification"
+          content="MSsidG9L3JCL7TKRfo8MCmK4E-nXZo4ueqNQsqf0y3A"
+        />
       </head>
       <body>
         <ThemeProvider

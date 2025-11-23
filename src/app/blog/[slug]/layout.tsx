@@ -4,9 +4,9 @@ import DefaultLayout from '@/components/layouts/default-layout'
 
 export interface PostLayoutProps {
   children: ReactNode
-  params: {
+  params: Promise<{
     slug: string
-  }
+  }>
 }
 
 export default function PostLayout({ children }: PostLayoutProps) {

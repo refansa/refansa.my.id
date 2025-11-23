@@ -12,9 +12,9 @@ const ROOT_PATH = process.cwd()
 const BLOG_PATH = path.join(ROOT_PATH, 'src', 'contents', 'posts')
 
 export interface Props {
-  params: {
+  params: Promise<{
     slug: string
-  }
+  }>
 }
 
 type FrontMatterMetadata = {
@@ -66,16 +66,18 @@ function getPost(slug: string): PostMetadata {
  *
  * See: <https://nextjs.org/docs/app/api-reference/functions/generate-static-params>
  */
-export async function generateStaticParams(): Promise<string[]> {
+export async function generateStaticParams(): Promise<{ slug: string }[]> {
   const files = fs.readdirSync(BLOG_PATH)
 
-  const slugPaths = files.map((filename) => filename.replace('.mdx', ''))
+  const params = files.map((filename) => ({
+    slug: filename.replace('.mdx', ''),
+  }))
 
-  return slugPaths
+  return params
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = params
+  const { slug } = await params
 
   const post = getPost(slug)
 
@@ -85,8 +87,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-export default function Post({ params }: Props) {
-  const { slug } = params
+export default async function Post({ params }: Props) {
+  const { slug } = await params
 
   const post = getPost(slug)
 

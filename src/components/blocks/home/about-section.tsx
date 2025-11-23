@@ -14,7 +14,7 @@ export default function AboutSection() {
         {t('intro')} <TermWord description={t('niceToMeetYouDesc')}>{t('niceToMeetYou')}</TermWord>
       </p>
       <p>{t('humbleAbode')}</p>
-      <p>{t('loveComplexity')}</p>
+      <p>{t('loveSimplicity')}</p>
       <p>{t('openSource')}</p>
       <p>
         <em className="text-foreground/50">

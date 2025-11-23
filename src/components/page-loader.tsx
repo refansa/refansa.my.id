@@ -90,11 +90,37 @@ export function PageLoader() {
           {/* Pen Body */}
           <g className="pen-animation">
             {/* Pen Tip */}
-            <path d="M260 260 L280 300 L300 260 Z" fill="currentColor" />
+            <path
+              d="M260 260 L280 300 L300 260 Z"
+              fill="currentColor"
+              stroke="#000"
+              strokeWidth="3"
+              strokeLinejoin="round"
+              className="opacity-90"
+            />
             {/* Pen Shaft */}
-            <rect x="260" y="100" width="40" height="160" fill="currentColor" />
+            <rect
+              x="260"
+              y="100"
+              width="40"
+              height="160"
+              fill="currentColor"
+              stroke="#000"
+              strokeWidth="3"
+              className="opacity-90"
+            />
             {/* Pen Cap/Top */}
-            <rect x="250" y="80" width="60" height="20" rx="4" fill="currentColor" />
+            <rect
+              x="250"
+              y="80"
+              width="60"
+              height="20"
+              rx="4"
+              fill="currentColor"
+              stroke="#000"
+              strokeWidth="3"
+              className="opacity-90"
+            />
           </g>
         </svg>
         <span className="text-sm font-medium text-muted-foreground">Scribbling the page...</span>

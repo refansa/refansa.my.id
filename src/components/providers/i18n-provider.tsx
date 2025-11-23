@@ -26,7 +26,7 @@ export function I18nProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     async function loadMessages() {
       try {
-        const msgs = (await import(`../../messages/${locale}.json`)).default
+        const msgs = (await import(`../../messages/${locale}.ts`)).default
         setMessages(msgs)
       } catch (error) {
         console.error(`Failed to load messages for locale: ${locale}`, error)

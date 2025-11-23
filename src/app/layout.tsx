@@ -6,6 +6,7 @@ import { ReactNode } from 'react'
 import { siteConfig } from '@/config/site'
 
 import { ThemeProvider } from '@/components/providers/theme-provider'
+import { LanguageProvider } from '@/components/providers/language-provider'
 import { TooltipProvider } from '@/components/ui/tooltip'
 
 export const metadata: Metadata = {
@@ -47,9 +48,11 @@ export default function RootLayout({ children }: RootLayoutProps) {
           enableSystem
           disableTransitionOnChange
         >
-          <TooltipProvider>
-            <div className="relative flex min-h-screen flex-col bg-background">{children}</div>
-          </TooltipProvider>
+          <LanguageProvider>
+            <TooltipProvider>
+              <div className="relative flex min-h-screen flex-col bg-background">{children}</div>
+            </TooltipProvider>
+          </LanguageProvider>
         </ThemeProvider>
       </body>
     </html>

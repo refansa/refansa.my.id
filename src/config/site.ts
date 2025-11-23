@@ -1,5 +1,5 @@
 export const siteConfig = {
-  name: 'Refansa',
+  name: 'Muhammad Refansa Ali Muzky',
   email: 'm.refansa.am@gmail.com',
   tel: '(+62) 812-8543-3284',
   url: 'https://refansa.my.id',

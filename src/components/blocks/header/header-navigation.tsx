@@ -18,6 +18,7 @@ import {
   SheetTrigger,
 } from '@/components/ui/sheet'
 import NavigationItem from '@/components/blocks/header/navigation-item'
+import { useLanguage } from '@/components/providers/language-provider'
 
 const Clock = dynamic(() => import('@/components/clock').then((mod) => mod.Clock), {
   loading: () => <Skeleton className="md:w-52 w-[100px] h-7" />,
@@ -32,8 +33,17 @@ const ThemeSwitch = dynamic(
   },
 )
 
+const LanguageSwitch = dynamic(
+  () => import('@/components/language-switch').then((mod) => mod.LanguageSwitch),
+  {
+    loading: () => <Skeleton className="w-10 h-10" />,
+    ssr: false,
+  },
+)
+
 export default function HeaderNavigation() {
   const pathname = usePathname()
+  const { dict } = useLanguage()
 
   const smoothHeaderScroll = (e: any) => {
     if (pathname === '/') {
@@ -56,8 +66,9 @@ export default function HeaderNavigation() {
         <Clock />
       </div>
       <div id="Desktop" className="flex-1 hidden md:flex gap-4 items-center justify-end">
-        <NavigationItem href="/blog">Blog</NavigationItem>
-        <NavigationItem href="/projects">Projects</NavigationItem>
+        <NavigationItem href="/blog">{dict.common.blog}</NavigationItem>
+        <NavigationItem href="/projects">{dict.common.projects}</NavigationItem>
+        <LanguageSwitch />
         <ThemeSwitch />
       </div>
       <div id="Mobile" className="flex-1 flex md:hidden justify-end">
@@ -70,7 +81,10 @@ export default function HeaderNavigation() {
           <SheetContent side="right">
             <SheetHeader>
               <SheetTitle className="flex gap-2 justify-between px-2">
-                <ThemeSwitch starterId={10} />
+                <div className="flex gap-2">
+                  <ThemeSwitch starterId={10} />
+                  <LanguageSwitch />
+                </div>
                 <SheetClose asChild>
                   <Button variant="ghost" size="icon">
                     <XIcon />
@@ -78,8 +92,8 @@ export default function HeaderNavigation() {
                 </SheetClose>
               </SheetTitle>
               <SheetDescription className="flex flex-col gap-2">
-                <NavigationItem href="/blog">Blog</NavigationItem>
-                <NavigationItem href="/projects">Projects</NavigationItem>
+                <NavigationItem href="/blog">{dict.common.blog}</NavigationItem>
+                <NavigationItem href="/projects">{dict.common.projects}</NavigationItem>
               </SheetDescription>
             </SheetHeader>
           </SheetContent>

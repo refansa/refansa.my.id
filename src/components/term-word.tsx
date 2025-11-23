@@ -1,6 +1,6 @@
 import { HTMLAttributes, ReactNode } from 'react'
 
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
+import { Tooltip, TooltipContent, TooltipPortal, TooltipTrigger } from '@/components/ui/tooltip'
 
 export interface Props extends HTMLAttributes<HTMLSpanElement> {
   children: ReactNode
@@ -18,9 +18,11 @@ export default function TermWord({ children, description, ...rest }: Props) {
           {children}
         </span>
       </TooltipTrigger>
-      <TooltipContent>
-        <span className="not-italic font-normal">{description}</span>
-      </TooltipContent>
+      <TooltipPortal>
+        <TooltipContent>
+          <span className="not-italic font-normal">{description}</span>
+        </TooltipContent>
+      </TooltipPortal>
     </Tooltip>
   )
 }

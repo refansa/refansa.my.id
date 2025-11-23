@@ -3,7 +3,7 @@
 import { useTheme } from 'next-themes'
 
 import { animated, useSpring } from '@react-spring/web'
-import { useEffect, useState, HTMLAttributes } from 'react'
+import { useState, HTMLAttributes } from 'react'
 import { Button } from './ui/button'
 
 type SVGProps = Omit<HTMLAttributes<HTMLOrSVGElement>, 'onChange'>
@@ -23,30 +23,26 @@ export function ThemeSwitch({
   sunColor = 'dark',
   starterId = 0,
 }: Props) {
-  const { theme, systemTheme, setTheme } = useTheme()
+  const { theme, resolvedTheme, setTheme } = useTheme()
 
   const [id] = useState(() => starterId + Math.random())
 
-  useEffect(() => {
-    // If the theme is currently using system theme, set the theme according to the system theme value.
-    if (theme === 'system') {
-      setTheme(systemTheme as 'dark' | 'light')
-    }
-  }, [theme, systemTheme, setTheme])
+  // Use resolvedTheme for visual representation (what the user actually sees)
+  const currentTheme = resolvedTheme || theme
 
   const properties = {
     circle: {
-      r: theme === 'dark' ? 9 : 5,
+      r: currentTheme === 'dark' ? 9 : 5,
     },
     mask: {
-      cx: theme === 'dark' ? '50%' : '100',
-      cy: theme === 'dark' ? '23%' : '0%',
+      cx: currentTheme === 'dark' ? '50%' : '100',
+      cy: currentTheme === 'dark' ? '23%' : '0%',
     },
     svg: {
-      transform: theme === 'dark' ? 'rotate(40deg)' : 'rotate(90deg)',
+      transform: currentTheme === 'dark' ? 'rotate(40deg)' : 'rotate(90deg)',
     },
     lines: {
-      opacity: theme === 'dark' ? 0 : 1,
+      opacity: currentTheme === 'dark' ? 0 : 1,
     },
     config: { mass: 4, tension: 250, friction: 35 },
   }
@@ -72,19 +68,39 @@ export function ThemeSwitch({
   const uniqueMaskId = `circle-mask-${id}`
 
   const toggle = () => {
-    setTheme(theme === 'dark' ? 'light' : 'dark')
-    onChange && onChange(theme === 'dark')
+    // Cycle through: dark -> light -> system
+    if (theme === 'dark') {
+      setTheme('light')
+      onChange && onChange(false)
+    } else if (theme === 'light') {
+      setTheme('system')
+      onChange && onChange(resolvedTheme === 'dark')
+    } else {
+      setTheme('dark')
+      onChange && onChange(true)
+    }
+  }
+
+  const getThemeLabel = () => {
+    if (theme === 'system') return `Theme: System (${currentTheme})`
+    return `Theme: ${theme}`
   }
 
   return (
-    <Button onClick={toggle} variant="ghost" size="icon">
+    <Button
+      onClick={toggle}
+      variant="ghost"
+      size="icon"
+      aria-label={getThemeLabel()}
+      title={getThemeLabel()}
+    >
       <div className="flex items-center w-5 h-5 bg-transparent">
         <animated.svg
           xmlns="http://www.w3.org/2000/svg"
           width={size}
           height={size}
           viewBox="0 0 24 24"
-          color={theme === 'dark' ? moonColor : sunColor}
+          color={currentTheme === 'dark' ? moonColor : sunColor}
           fill="none"
           strokeWidth="2"
           strokeLinecap="round"
@@ -108,7 +124,7 @@ export function ThemeSwitch({
           <animated.circle
             cx="12"
             cy="12"
-            fill={theme === 'dark' ? moonColor : sunColor}
+            fill={currentTheme === 'dark' ? moonColor : sunColor}
             // @ts-ignore
             style={centerCircleProps}
             mask={`url(#${uniqueMaskId})`}

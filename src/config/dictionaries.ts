@@ -58,7 +58,7 @@ export const en: Dictionary = {
   },
   home: {
     introduction: {
-      welcome: 'Welcome, New & Old Friends!',
+      welcome: 'Welcome, Old & New Friends!',
       me: "I'm Refansa",
       passionate: 'A Passionate,',
       selfTaught: 'self-taught',
@@ -113,7 +113,7 @@ export const id: Dictionary = {
   },
   home: {
     introduction: {
-      welcome: 'Selamat Datang, Teman Baru & Lama!',
+      welcome: 'Selamat Datang, Teman Lama dan juga Teman Baru!',
       me: 'Saya Refansa',
       passionate: 'Seseorang yang bersemangat untuk belajar secara',
       selfTaught: 'otodidak',

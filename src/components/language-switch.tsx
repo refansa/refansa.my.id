@@ -1,17 +1,17 @@
 'use client'
 
 import { Button } from '@/components/ui/button'
-import { useLanguage } from '@/components/providers/language-provider'
+import { useI18n } from '@/components/providers/i18n-provider'
 
 export function LanguageSwitch() {
-  const { language, setLanguage } = useLanguage()
+  const { locale, setLocale } = useI18n()
 
   const toggleLanguage = () => {
-    setLanguage(language === 'EN' ? 'ID' : 'EN')
+    setLocale(locale === 'en' ? 'id' : 'en')
   }
 
   const getLanguageLabel = () => {
-    return `Switch to ${language === 'EN' ? 'Indonesian' : 'English'}`
+    return `Switch to ${locale === 'en' ? 'Indonesian' : 'English'}`
   }
 
   return (
@@ -23,7 +23,7 @@ export function LanguageSwitch() {
       aria-label={getLanguageLabel()}
       title={getLanguageLabel()}
     >
-      {language}
+      {locale.toUpperCase()}
     </Button>
   )
 }

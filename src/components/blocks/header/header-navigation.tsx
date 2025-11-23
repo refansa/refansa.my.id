@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
 import { usePathname } from 'next/navigation'
+import { useTranslations } from 'next-intl'
 
 import { MenuIcon, XIcon } from 'lucide-react'
 
@@ -18,7 +19,6 @@ import {
   SheetTrigger,
 } from '@/components/ui/sheet'
 import NavigationItem from '@/components/blocks/header/navigation-item'
-import { useLanguage } from '@/components/providers/language-provider'
 
 const Clock = dynamic(() => import('@/components/clock').then((mod) => mod.Clock), {
   loading: () => <Skeleton className="md:w-52 w-[100px] h-7" />,
@@ -43,7 +43,7 @@ const LanguageSwitch = dynamic(
 
 export default function HeaderNavigation() {
   const pathname = usePathname()
-  const { dict } = useLanguage()
+  const t = useTranslations('common')
 
   const smoothHeaderScroll = (e: any) => {
     if (pathname === '/') {
@@ -66,8 +66,8 @@ export default function HeaderNavigation() {
         <Clock />
       </div>
       <div id="Desktop" className="flex-1 hidden md:flex gap-4 items-center justify-end">
-        <NavigationItem href="/blog">{dict.common.blog}</NavigationItem>
-        <NavigationItem href="/projects">{dict.common.projects}</NavigationItem>
+        <NavigationItem href="/blog">{t('blog')}</NavigationItem>
+        <NavigationItem href="/projects">{t('projects')}</NavigationItem>
         <LanguageSwitch />
         <ThemeSwitch />
       </div>
@@ -92,8 +92,8 @@ export default function HeaderNavigation() {
                 </SheetClose>
               </SheetTitle>
               <SheetDescription className="flex flex-col gap-2">
-                <NavigationItem href="/blog">{dict.common.blog}</NavigationItem>
-                <NavigationItem href="/projects">{dict.common.projects}</NavigationItem>
+                <NavigationItem href="/blog">{t('blog')}</NavigationItem>
+                <NavigationItem href="/projects">{t('projects')}</NavigationItem>
               </SheetDescription>
             </SheetHeader>
           </SheetContent>

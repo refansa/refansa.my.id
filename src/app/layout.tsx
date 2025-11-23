@@ -6,7 +6,7 @@ import { ReactNode } from 'react'
 import { siteConfig } from '@/config/site'
 
 import { ThemeProvider } from '@/components/providers/theme-provider'
-import { LanguageProvider } from '@/components/providers/language-provider'
+import { I18nProvider } from '@/components/providers/i18n-provider'
 import { TooltipProvider } from '@/components/ui/tooltip'
 import { PageLoader } from '@/components/page-loader'
 
@@ -49,12 +49,12 @@ export default function RootLayout({ children }: RootLayoutProps) {
           enableSystem
           disableTransitionOnChange
         >
-          <LanguageProvider>
+          <I18nProvider>
             <TooltipProvider>
               <PageLoader />
               <div className="relative flex min-h-screen flex-col bg-background">{children}</div>
             </TooltipProvider>
-          </LanguageProvider>
+          </I18nProvider>
         </ThemeProvider>
       </body>
     </html>

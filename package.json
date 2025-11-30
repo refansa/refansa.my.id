@@ -49,7 +49,7 @@
     "@eslint/js": "^9.17.0",
     "@types/mdx": "^2.0.13",
     "@types/node": "^24.10.1",
-    "@types/react": "^19.2.6",
+    "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
     "@types/slug": "^5.0.9",
     "baseline-browser-mapping": "^2.8.32",

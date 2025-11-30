@@ -10,17 +10,23 @@ interface ProjectListProps {
 }
 
 type FilterStatus = 'All' | 'Archived' | 'Maintained' | 'Abandoned' | 'Completed'
+type FilterType = 'All' | 'Personal' | 'Contribution'
 type SortOption = 'Newest' | 'Oldest'
 
 export default function ProjectList({ projects }: ProjectListProps) {
-  const [filter, setFilter] = useState<FilterStatus>('All')
+  const [statusFilter, setStatusFilter] = useState<FilterStatus>('All')
+  const [typeFilter, setTypeFilter] = useState<FilterType>('All')
   const [sort, setSort] = useState<SortOption>('Newest')
 
   const filteredProjects = useMemo(() => {
     let result = [...projects]
 
-    if (filter !== 'All') {
-      result = result.filter((project) => project.frontMatter.status === filter)
+    if (statusFilter !== 'All') {
+      result = result.filter((project) => project.frontMatter.status === statusFilter)
+    }
+
+    if (typeFilter !== 'All') {
+      result = result.filter((project) => project.frontMatter.type === typeFilter)
     }
 
     result.sort((a, b) => {
@@ -31,27 +37,55 @@ export default function ProjectList({ projects }: ProjectListProps) {
     })
 
     return result
-  }, [projects, filter, sort])
+  }, [projects, statusFilter, typeFilter, sort])
 
   return (
     <div className="flex flex-col gap-8">
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-        <div className="flex flex-wrap gap-2">
-          {(['All', 'Maintained', 'Completed', 'Archived', 'Abandoned'] as const).map((status) => (
-            <Button
-              key={status}
-              variant={filter === status ? 'default' : 'outline'}
-              size="sm"
-              onClick={() => setFilter(status)}
-              className="rounded-full"
-            >
-              {status}
-            </Button>
-          ))}
+      <div className="flex flex-col md:flex-row justify-between items-start gap-6">
+        <div className="flex flex-col gap-4 w-full md:w-auto">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+            <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider w-16 shrink-0">
+              Status
+            </span>
+            <div className="flex flex-wrap gap-2">
+              {(['All', 'Maintained', 'Completed', 'Archived', 'Abandoned'] as const).map(
+                (status) => (
+                  <Button
+                    key={status}
+                    variant={statusFilter === status ? 'default' : 'outline'}
+                    size="sm"
+                    onClick={() => setStatusFilter(status)}
+                    className="rounded-full h-7 text-xs"
+                  >
+                    {status}
+                  </Button>
+                ),
+              )}
+            </div>
+          </div>
+
+          <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+            <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider w-16 shrink-0">
+              Type
+            </span>
+            <div className="flex flex-wrap gap-2">
+              {(['All', 'Personal', 'Contribution'] as const).map((type) => (
+                <Button
+                  key={type}
+                  variant={typeFilter === type ? 'default' : 'outline'}
+                  size="sm"
+                  onClick={() => setTypeFilter(type)}
+                  className="rounded-full h-7 text-xs"
+                >
+                  {type}
+                </Button>
+              ))}
+            </div>
+          </div>
         </div>
 
-        <div className="flex items-center gap-2">
-          <span className="text-sm text-muted-foreground">Sort by:</span>
+        <div className="flex items-center gap-2 self-end md:self-start">
+          <span className="text-sm text-muted-foreground whitespace-nowrap">Sort by:</span>
           <select
             value={sort}
             onChange={(e) => setSort(e.target.value as SortOption)}
@@ -71,7 +105,7 @@ export default function ProjectList({ projects }: ProjectListProps) {
 
       {filteredProjects.length === 0 && (
         <div className="text-center py-12 text-muted-foreground">
-          No projects found matching the selected filter.
+          No projects found matching the selected filters.
         </div>
       )}
     </div>

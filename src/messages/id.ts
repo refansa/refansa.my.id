@@ -49,10 +49,6 @@ const id: Messages = {
     message: 'Anda mencoba mengakses halaman yang tidak ada.',
     goHome: 'Kembali ke Beranda',
   },
-  footer: {
-    createdWith: 'Dibuat dengan ❤️',
-    by: 'oleh',
-  },
 }
 
 export default id

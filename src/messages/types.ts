@@ -43,8 +43,4 @@ export type Messages = {
     message: string
     goHome: string
   }
-  footer: {
-    createdWith: string
-    by: string
-  }
 }

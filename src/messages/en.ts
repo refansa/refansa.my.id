@@ -49,10 +49,6 @@ const en: Messages = {
     message: "You are trying to access a page that doesn't exist.",
     goHome: 'Go Home',
   },
-  footer: {
-    createdWith: 'Created with ❤️',
-    by: 'by',
-  },
 }
 
 export default en

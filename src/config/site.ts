@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: 'Muhammad Refansa Ali Muzky',
   nickname: 'Refansa',
-  email: 'm.refansa.am@gmail.com',
+  email: 'refansa@thumbleweed.com',
   tel: '(+62) 812-8543-3284',
   url: 'https://refansa.my.id',
   description: 'A humble internet abode.',
@@ -31,6 +31,7 @@ export const siteConfig = {
     twitter: '@refansa',
   },
   twitter: '@refansa',
+
   get links() {
     return siteLinks
   },

@@ -123,7 +123,6 @@ export function PageLoader() {
             />
           </g>
         </svg>
-        <span className="text-sm font-medium text-muted-foreground">Scribbling the page...</span>
       </div>
       <style
         dangerouslySetInnerHTML={{

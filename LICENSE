@@ -1,0 +1,100 @@
+DUAL LICENSE
+
+This project uses a dual licensing approach to separate the code implementation 
+from personal content and data.
+
+================================================================================
+
+PART 1: SOURCE CODE LICENSE (MIT LICENSE)
+
+Applies to: All source code, implementation logic, technical configurations, 
+and structural components of this project.
+
+Excludes: Personal information, content, images, text, and data as defined in 
+Part 2 below.
+
+--------------------------------------------------------------------------------
+
+MIT License
+
+Copyright (c) 2025 Muhammad Refansa Ali Muzky
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+================================================================================
+
+PART 2: PERSONAL CONTENT AND DATA LICENSE (ALL RIGHTS RESERVED)
+
+Applies to:
+  - Personal information (name, email, phone number, location, bio, etc.)
+  - Personal photographs and images (my-photo.png, og-image.png, etc.)
+  - Written content, blog posts, and personal descriptions
+  - Content files in src/config/site.ts, src/messages/, and src/contents/
+  - Any other content that identifies or represents Muhammad Refansa Ali Muzky 
+    personally
+
+Copyright (c) 2025 Muhammad Refansa Ali Muzky. All Rights Reserved.
+
+The personal content and data in this repository are protected by copyright 
+law. No permission is granted to copy, reproduce, distribute, modify, or 
+create derivative works from this personal content without explicit written 
+permission from the copyright holder.
+
+--------------------------------------------------------------------------------
+
+What This Means:
+
+YOU MAY:
+  - Use the code structure and implementation as a template for your own 
+    portfolio
+  - Learn from the technical implementation
+  - Fork and modify the code for your own projects
+  - Use the code commercially after removing all personal content
+
+YOU MAY NOT:
+  - Use my personal information, photos, or biographical content
+  - Claim to be me or impersonate me
+  - Use my personal content for commercial purposes
+  - Create derivative works using my personal information
+  - Republish or redistribute my personal content
+
+--------------------------------------------------------------------------------
+
+How to Use This Project Legally:
+
+If you want to use this portfolio as a template:
+
+1. Fork or clone this repository
+2. Replace ALL personal content with your own:
+     - Update src/config/site.ts with your information
+     - Replace images in public/ with your own photos
+     - Update all content in src/messages/ folders
+     - Rewrite all blog posts and personal descriptions
+3. You may keep or modify the code structure under the MIT License
+4. Give appropriate credit (optional but appreciated)
+
+================================================================================
+
+Questions?
+
+If you have questions about this license or need permission for specific use 
+cases, please contact:
+
+Email: m.refansa.am@gmail.com
+GitHub: @refansa (https://github.com/refansa)

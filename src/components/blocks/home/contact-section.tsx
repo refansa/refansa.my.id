@@ -11,14 +11,12 @@ export default function ContactSection() {
   const t = useTranslations('home.contact')
 
   return (
-    <section className="flex flex-col gap-4 text-xs md:text-base tracking-wide leading-relaxed">
+    <section className="flex flex-col gap-6 text-xs md:text-base tracking-wide leading-relaxed">
       <Heading level={3}>{t('title')}</Heading>
+
       <div className="flex flex-col gap-2">
         <span>
           {t('email')}: <Anchor href={siteConfig.links.email}>{siteConfig.email}</Anchor>
-        </span>
-        <span>
-          {t('tel')}: <Anchor href={siteConfig.links.tel}>{siteConfig.tel}</Anchor>
         </span>
       </div>
     </section>

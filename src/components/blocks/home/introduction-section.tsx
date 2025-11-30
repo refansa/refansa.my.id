@@ -8,7 +8,6 @@ import { useTranslations } from 'next-intl'
 import { siteConfig } from '@/config/site'
 
 import { Button } from '@/components/ui/button'
-import TermWord from '@/components/term-word'
 
 export default function IntroductionSection() {
   const t = useTranslations('home.introduction')
@@ -29,11 +28,7 @@ export default function IntroductionSection() {
         </span>
         <div className="mt-4 flex flex-col">
           <span className="text-lg md:text-2xl font-bold">
-            {t('passionate')}{' '}
-            <TermWord description={t('selfTaughtDesc')}>
-              <i>{t('selfTaught')}</i>
-            </TermWord>{' '}
-            {t('developer')}
+            {t('passionate')} {t('developer')}
           </span>
           <span className="text-lg md:text-2xl font-bold text-foreground/50">{t('patron')}</span>
         </div>

@@ -7,7 +7,7 @@ import { generateMetadata as generateSEOMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = generateSEOMetadata({
   description:
-    'Muhammad Refansa Ali Muzky - A passionate, self-taught Software Developer from Jakarta, Indonesia. Patron of Open Source Software Movement.',
+    'Muhammad Refansa Ali Muzky - A passionate Software Developer from Jakarta, Indonesia. Patron of Open Source Software Movement.',
   tags: [
     'Muhammad Refansa Ali Muzky',
     'Refansa',

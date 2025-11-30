@@ -11,10 +11,8 @@ const id: Messages = {
     introduction: {
       welcome: 'Selamat Datang, Teman Lama dan juga Teman Baru!',
       me: 'Saya Refansa',
-      passionate: 'Seseorang yang bersemangat untuk belajar secara',
-      selfTaught: 'otodidak',
-      selfTaughtDesc: 'Kuliah terlalu mahal untuk zaman sekarang.',
-      developer: 'sebagai Software Developer',
+      passionate: 'Seorang',
+      developer: 'Software Developer yang bersemangat',
       patron: 'Pendukung penuh Gerakan Open Source Software.',
     },
     about: {

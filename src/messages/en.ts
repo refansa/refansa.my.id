@@ -11,9 +11,7 @@ const en: Messages = {
     introduction: {
       welcome: 'Welcome, Old & New Friends!',
       me: "I'm Refansa",
-      passionate: 'A Passionate,',
-      selfTaught: 'self-taught',
-      selfTaughtDesc: 'College is too expensive nowadays.',
+      passionate: 'A Passionate',
       developer: 'Software Developer',
       patron: 'And a Patron of Open Source Software Movement.',
     },

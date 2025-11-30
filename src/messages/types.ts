@@ -10,8 +10,6 @@ export type Messages = {
       welcome: string
       me: string
       passionate: string
-      selfTaught: string
-      selfTaughtDesc: string
       developer: string
       patron: string
     }

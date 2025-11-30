@@ -4,6 +4,7 @@ export type Messages = {
     projects: string
     github: string
     email: string
+    pgp: string
   }
   home: {
     introduction: {

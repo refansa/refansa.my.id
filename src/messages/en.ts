@@ -6,6 +6,7 @@ const en: Messages = {
     projects: 'Projects',
     github: 'Github',
     email: 'Email',
+    pgp: 'PGP Public Key',
   },
   home: {
     introduction: {

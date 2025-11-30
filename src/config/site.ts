@@ -41,6 +41,7 @@ export const siteLinks = {
   github: 'https://github.com/refansa',
   email: `mailto:${siteConfig.email}`,
   tel: `tel:${siteConfig.tel}`,
+  pgp: '/pgp.asc',
 }
 
 export type SiteConfig = typeof siteConfig

@@ -33,14 +33,6 @@ const ThemeSwitch = dynamic(
   },
 )
 
-const LanguageSwitch = dynamic(
-  () => import('@/components/language-switch').then((mod) => mod.LanguageSwitch),
-  {
-    loading: () => <Skeleton className="w-10 h-10" />,
-    ssr: false,
-  },
-)
-
 export default function HeaderNavigation() {
   const pathname = usePathname()
   const t = useTranslations('common')
@@ -68,7 +60,6 @@ export default function HeaderNavigation() {
       <div id="Desktop" className="flex-1 hidden md:flex gap-4 items-center justify-end">
         <NavigationItem href="/blog">{t('blog')}</NavigationItem>
         <NavigationItem href="/projects">{t('projects')}</NavigationItem>
-        <LanguageSwitch />
         <ThemeSwitch />
       </div>
       <div id="Mobile" className="flex-1 flex md:hidden justify-end">
@@ -83,7 +74,6 @@ export default function HeaderNavigation() {
               <SheetTitle className="flex gap-2 justify-between px-2">
                 <div className="flex gap-2">
                   <ThemeSwitch starterId={10} />
-                  <LanguageSwitch />
                 </div>
                 <SheetClose asChild>
                   <Button variant="ghost" size="icon">

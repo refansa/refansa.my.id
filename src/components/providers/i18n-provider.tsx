@@ -3,7 +3,7 @@
 import { createContext, useContext, useEffect, useState, ReactNode } from 'react'
 import { NextIntlClientProvider, AbstractIntlMessages } from 'next-intl'
 
-type Locale = 'en' | 'id'
+type Locale = 'en'
 
 interface I18nContextType {
   locale: Locale
@@ -18,7 +18,7 @@ export function I18nProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     const savedLocale = localStorage.getItem('language') as Locale
-    if (savedLocale === 'en' || savedLocale === 'id') {
+    if (savedLocale === 'en') {
       setLocaleState(savedLocale)
     }
   }, [])

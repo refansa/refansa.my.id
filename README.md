@@ -22,7 +22,7 @@ Open http://localhost:3000 with your browser to see the result.
 
 This project uses a **dual license**:
 
-- **Code**: MIT License - Feel free to use the code structure and implementation
+- **Code**: CC BY-NC 4.0 License - Feel free to use the code structure for non-commercial purposes
 - **Personal Content**: All Rights Reserved - My personal information, photos, and content are protected
 
 See [LICENSE](LICENSE) for full details.

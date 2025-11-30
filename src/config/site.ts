@@ -5,7 +5,7 @@ export const siteConfig = {
   tel: '(+62) 812-8543-3284',
   url: 'https://refansa.my.id',
   description: 'A humble internet abode.',
-  bio: 'A passionate Software Developer from Jakarta, Indonesia. Patron of Open Source Software Movement, specializing in web development, game development, and 3D modeling.',
+  bio: 'A passionate Software Developer from Jakarta, Indonesia. Supporter of Open Source Software Movement, specializing in web development, game development, and 3D modeling.',
   keywords: [
     'Muhammad Refansa Ali Muzky',
     'Refansa',

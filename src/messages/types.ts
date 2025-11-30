@@ -12,7 +12,7 @@ export type Messages = {
       me: string
       passionate: string
       developer: string
-      patron: string
+      supporter: string
     }
     about: {
       title: string
@@ -30,6 +30,16 @@ export type Messages = {
       title: string
       email: string
       tel: string
+    }
+    timeline: {
+      title: string
+      items: Record<
+        string,
+        {
+          title: string
+          description: string
+        }
+      >
     }
   }
   underConstruction: {

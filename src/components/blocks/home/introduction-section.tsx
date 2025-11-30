@@ -30,7 +30,7 @@ export default function IntroductionSection() {
           <span className="text-lg md:text-2xl font-bold">
             {t('passionate')} {t('developer')}
           </span>
-          <span className="text-lg md:text-2xl font-bold text-foreground/50">{t('patron')}</span>
+          <span className="text-lg md:text-2xl font-bold text-foreground/50">{t('supporter')}</span>
         </div>
         <div className="mt-2 flex gap-4">
           <Button className="text-lg font-bold flex gap-2" size="lg" asChild>

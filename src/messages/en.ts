@@ -14,7 +14,7 @@ const en: Messages = {
       me: "I'm Refansa",
       passionate: 'A Passionate',
       developer: 'Software Developer',
-      patron: 'And a Patron of Open Source Software Movement.',
+      supporter: 'And a Supporter of Open Source Software Movement.',
     },
     about: {
       title: 'A bit about me',
@@ -36,6 +36,30 @@ const en: Messages = {
       title: 'Contact',
       email: 'Email',
       tel: 'Tel',
+    },
+    timeline: {
+      title: 'My Journey',
+      items: {
+        '2018': {
+          title: 'Hello, World!',
+          description:
+            'Wrote my first line of code. Initially getting exposed to programming through Minecraft modding.',
+        },
+        '2021': {
+          title: 'Freelancing',
+          description:
+            'Started taking freelance projects and building websites for clients through high school program.',
+        },
+        '2023': {
+          title: 'First Career',
+          description:
+            'Landed my first full-time job as a Web Developer at PT Qtera Mandiri. (Still Employed)',
+        },
+        Present: {
+          title: 'Exciting Times!',
+          description: 'Founded a small indie game development studio called Thumbleweed Studio.',
+        },
+      },
     },
   },
   underConstruction: {

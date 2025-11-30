@@ -216,3 +216,65 @@ export function generateBreadcrumbSchema(breadcrumbs: Array<{ name: string; url:
     })),
   }
 }
+
+/**
+ * Generate JSON-LD structured data for a software project
+ */
+export function generateProjectSchema(props: {
+  title: string
+  description: string
+  url: string
+  image?: string
+  datePublished: string
+  dateModified?: string
+  applicationCategory?: string
+  operatingSystem?: string
+  repoUrl?: string
+  demoUrl?: string
+  keywords?: string[]
+}) {
+  const {
+    title,
+    description,
+    url,
+    image,
+    datePublished,
+    dateModified,
+    applicationCategory = 'DeveloperApplication',
+    operatingSystem = 'Any',
+    repoUrl,
+    demoUrl,
+    keywords,
+  } = props
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: title,
+    description,
+    url,
+    image: image || `${siteConfig.url}/og-image.png`,
+    datePublished,
+    dateModified: dateModified || datePublished,
+    applicationCategory,
+    operatingSystem,
+    author: {
+      '@type': 'Person',
+      name: siteConfig.name,
+      url: siteConfig.url,
+    },
+    publisher: {
+      '@type': 'Person',
+      name: siteConfig.name,
+      url: siteConfig.url,
+    },
+    keywords: keywords?.join(', '),
+    inLanguage: 'en',
+    ...(repoUrl && { codeRepository: repoUrl }),
+    ...(demoUrl && { sameAs: [demoUrl] }),
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': url,
+    },
+  }
+}

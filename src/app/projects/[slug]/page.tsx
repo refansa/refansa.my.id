@@ -3,7 +3,8 @@ import { notFound } from 'next/navigation'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 
 import DefaultLayout from '@/components/layouts/default-layout'
-import { generateMetadata as generateSEOMetadata } from '@/lib/seo'
+import { siteConfig } from '@/config/site'
+import { generateMetadata as generateSEOMetadata, generateProjectSchema } from '@/lib/seo'
 import { getAllProjects, getProject } from '@/lib/mdx'
 import { components } from '@/components/mdx-components'
 import ProjectDetail from '@/components/blocks/projects/project-detail'
@@ -61,8 +62,26 @@ export default async function Project({ params }: Props) {
     }
   }
 
+  // Default to English for schema
+  const meta = project.translations['en'] || Object.values(project.translations)[0]
+
+  const projectSchema = generateProjectSchema({
+    title: meta.frontMatter.title,
+    description: meta.frontMatter.description,
+    url: `${siteConfig.url}/projects/${slug}`,
+    datePublished: meta.frontMatter.publishedOn,
+    dateModified: meta.frontMatter.updatedOn,
+    repoUrl: meta.frontMatter.repoUrl,
+    demoUrl: meta.frontMatter.demoUrl,
+    keywords: meta.frontMatter.tags,
+  })
+
   return (
     <DefaultLayout>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(projectSchema) }}
+      />
       <ProjectDetail translations={translations} />
     </DefaultLayout>
   )

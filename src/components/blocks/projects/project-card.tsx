@@ -1,5 +1,6 @@
 import Link from 'next/link'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Calendar } from 'lucide-react'
+import { useFormatter } from 'next-intl'
 import { ProjectMetadata } from '@/lib/mdx'
 import { Heading } from '@/components/ui/heading'
 import { cn } from '@/lib/utils'
@@ -9,6 +10,8 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({ project }: ProjectCardProps) {
+  const format = useFormatter()
+
   return (
     <Link
       href={`/projects/${project.slug}`}
@@ -25,6 +28,15 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         <p className="text-muted-foreground line-clamp-2 text-base leading-relaxed">
           {project.frontMatter.description}
         </p>
+
+        <div className="flex items-center gap-2 text-xs text-muted-foreground">
+          <Calendar className="w-3.5 h-3.5" />
+          <time dateTime={project.frontMatter.publishedOn}>
+            {format.dateTime(new Date(project.frontMatter.publishedOn), {
+              dateStyle: 'medium',
+            })}
+          </time>
+        </div>
       </div>
 
       <div className="mt-auto flex items-center justify-between">

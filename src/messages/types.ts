@@ -38,6 +38,33 @@ export type Messages = {
     message: string
     goHome: string
   }
+  projects: {
+    title: string
+    description: string
+    status: string
+    type: string
+    sortBy: string
+    newest: string
+    oldest: string
+    noProjects: string
+    backToProjects: string
+    projectLinks: string
+    viewRepository: string
+    liveDemo: string
+    publishedOn: string
+    filterStatus: {
+      all: string
+      maintained: string
+      completed: string
+      archived: string
+      abandoned: string
+    }
+    filterType: {
+      all: string
+      personal: string
+      contribution: string
+    }
+  }
   notFound: {
     title: string
     message: string

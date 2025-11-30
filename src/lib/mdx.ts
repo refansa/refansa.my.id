@@ -18,49 +18,82 @@ export interface ProjectFrontMatter {
   type: 'Personal' | 'Contribution'
 }
 
+export interface ProjectFrontMatter {
+  title: string
+  description: string
+  publishedOn: string
+  updatedOn?: string
+  isPublished: boolean
+  tags: string[]
+  repoUrl?: string
+  demoUrl?: string
+  status: 'Archived' | 'Maintained' | 'Abandoned' | 'Completed'
+  type: 'Personal' | 'Contribution'
+}
+
 export interface ProjectMetadata {
   slug: string
+  locale: string
   frontMatter: ProjectFrontMatter
   content: string
 }
 
-export function getProject(slug: string): ProjectMetadata | null {
-  try {
-    const filePath = path.join(PROJECTS_PATH, `${slug}.mdx`)
-    const fileContent = fs.readFileSync(filePath, 'utf-8')
-    const { data, content } = matter(fileContent)
-
-    if (!data.isPublished) {
-      return null
-    }
-
-    return {
-      slug,
-      frontMatter: data as ProjectFrontMatter,
-      content,
-    }
-  } catch {
-    return null
-  }
+export interface Project {
+  slug: string
+  translations: Record<string, ProjectMetadata>
 }
 
-export function getAllProjects(): ProjectMetadata[] {
+export function getAllProjects(): Project[] {
   try {
     const files = fs.readdirSync(PROJECTS_PATH)
+    const projectsMap = new Map<string, Project>()
 
-    const projects = files
+    files
       .filter((file) => file.endsWith('.mdx'))
-      .map((file) => getProject(file.replace('.mdx', '')))
-      .filter((project): project is ProjectMetadata => project !== null)
-      .sort((a, b) => {
-        return (
-          new Date(b.frontMatter.publishedOn).getTime() -
-          new Date(a.frontMatter.publishedOn).getTime()
-        )
+      .forEach((file) => {
+        // Expected format: slug.locale.mdx
+        const parts = file.split('.')
+        if (parts.length < 3) return // Skip invalid files
+
+        const locale = parts[parts.length - 2]
+        const slug = parts.slice(0, parts.length - 2).join('.')
+
+        const filePath = path.join(PROJECTS_PATH, file)
+        const fileContent = fs.readFileSync(filePath, 'utf-8')
+        const { data, content } = matter(fileContent)
+
+        if (!data.isPublished) return
+
+        if (!projectsMap.has(slug)) {
+          projectsMap.set(slug, {
+            slug,
+            translations: {},
+          })
+        }
+
+        const project = projectsMap.get(slug)!
+        project.translations[locale] = {
+          slug,
+          locale,
+          frontMatter: data as ProjectFrontMatter,
+          content,
+        }
       })
 
-    return projects
+    return Array.from(projectsMap.values()).sort((a, b) => {
+      // Sort by published date of the 'en' translation (fallback to first available)
+      const getDate = (p: Project) => {
+        const meta = p.translations['en'] || Object.values(p.translations)[0]
+        return meta ? new Date(meta.frontMatter.publishedOn).getTime() : 0
+      }
+      return getDate(b) - getDate(a)
+    })
   } catch {
     return []
   }
+}
+
+export function getProject(slug: string): Project | null {
+  const projects = getAllProjects()
+  return projects.find((p) => p.slug === slug) || null
 }

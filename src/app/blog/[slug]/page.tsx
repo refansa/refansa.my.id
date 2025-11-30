@@ -1,64 +1,16 @@
-import fs from 'node:fs'
-import path from 'node:path'
-import matter from 'gray-matter'
+import Link from 'next/link'
+import { ArrowLeft } from 'lucide-react'
 import { MDXRemote } from 'next-mdx-remote/rsc'
-
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
 import { components } from '@/components/mdx-components'
-
-const ROOT_PATH = process.cwd()
-const BLOG_PATH = path.join(ROOT_PATH, 'src', 'contents', 'posts')
+import { getPost, getAllPosts } from '@/lib/mdx'
 
 export interface Props {
   params: Promise<{
     slug: string
   }>
-}
-
-type FrontMatterMetadata = {
-  siteTitle: string
-  postTitle: string
-  siteDescription: string
-  postDescription: string
-  publishedOn: string
-  updatedOn: string
-  isPublished: boolean
-  tags: string[]
-}
-
-export interface PostMetadata {
-  slug: string
-  frontMatter: FrontMatterMetadata
-  content: string
-}
-
-/**
- * Get the post from file system, matching the provided slug from the route params.
- */
-function getPost(slug: string): PostMetadata {
-  try {
-    const markdownFile = fs.readFileSync(path.join(BLOG_PATH, slug + '.mdx'), 'utf-8')
-
-    const { data: frontMatter, content } = matter(markdownFile)
-
-    if (!frontMatter.isPublished) {
-      throw new Error('Post is currently not published yet!')
-    }
-
-    return {
-      frontMatter: frontMatter as FrontMatterMetadata,
-      slug,
-      content,
-    }
-  } catch {
-    /*
-     * Catch any possible error (could be no slug exists, post has not been published,
-     * or something wrong with the fs) above and just render not found.
-     */
-    notFound()
-  }
 }
 
 /**
@@ -67,19 +19,20 @@ function getPost(slug: string): PostMetadata {
  * See: <https://nextjs.org/docs/app/api-reference/functions/generate-static-params>
  */
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
-  const files = fs.readdirSync(BLOG_PATH)
+  const posts = getAllPosts()
 
-  const params = files.map((filename) => ({
-    slug: filename.replace('.mdx', ''),
+  return posts.map((post) => ({
+    slug: post.slug,
   }))
-
-  return params
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
-
   const post = getPost(slug)
+
+  if (!post) {
+    return {}
+  }
 
   return {
     title: post.frontMatter.siteTitle,
@@ -89,11 +42,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function Post({ params }: Props) {
   const { slug } = await params
-
   const post = getPost(slug)
+
+  if (!post) {
+    return notFound()
+  }
 
   return (
     <main className="flex flex-col gap-4 my-8">
+      <Link
+        href="/blog"
+        className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors w-fit group"
+      >
+        <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+        <span>Back to Blog</span>
+      </Link>
+
       <div id="post-detail" className="flex flex-col gap-2 mb-2">
         <h1 id="post-title" className="text-3xl md:text-4xl font-bold">
           {post.frontMatter.postTitle}

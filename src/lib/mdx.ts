@@ -4,19 +4,7 @@ import matter from 'gray-matter'
 
 const ROOT_PATH = process.cwd()
 const PROJECTS_PATH = path.join(ROOT_PATH, 'src', 'contents', 'projects')
-
-export interface ProjectFrontMatter {
-  title: string
-  description: string
-  publishedOn: string
-  updatedOn?: string
-  isPublished: boolean
-  tags: string[]
-  repoUrl?: string
-  demoUrl?: string
-  status: 'Archived' | 'Maintained' | 'Abandoned' | 'Completed'
-  type: 'Personal' | 'Contribution'
-}
+const POSTS_PATH = path.join(ROOT_PATH, 'src', 'contents', 'posts')
 
 export interface ProjectFrontMatter {
   title: string
@@ -96,4 +84,56 @@ export function getAllProjects(): Project[] {
 export function getProject(slug: string): Project | null {
   const projects = getAllProjects()
   return projects.find((p) => p.slug === slug) || null
+}
+
+export interface PostFrontMatter {
+  siteTitle: string
+  postTitle: string
+  siteDescription: string
+  postDescription: string
+  publishedOn: string
+  updatedOn?: string
+  isPublished: boolean
+  tags: string[]
+}
+
+export interface PostMetadata {
+  slug: string
+  frontMatter: PostFrontMatter
+  content: string
+}
+
+export function getAllPosts(): PostMetadata[] {
+  try {
+    const files = fs.readdirSync(POSTS_PATH)
+
+    return files
+      .filter((file) => file.endsWith('.mdx'))
+      .map((file) => {
+        const slug = file.replace('.mdx', '')
+        const filePath = path.join(POSTS_PATH, file)
+        const fileContent = fs.readFileSync(filePath, 'utf-8')
+        const { data, content } = matter(fileContent)
+
+        return {
+          slug,
+          frontMatter: data as PostFrontMatter,
+          content,
+        }
+      })
+      .filter((post) => post.frontMatter.isPublished)
+      .sort((a, b) => {
+        return (
+          new Date(b.frontMatter.publishedOn).getTime() -
+          new Date(a.frontMatter.publishedOn).getTime()
+        )
+      })
+  } catch {
+    return []
+  }
+}
+
+export function getPost(slug: string): PostMetadata | null {
+  const posts = getAllPosts()
+  return posts.find((p) => p.slug === slug) || null
 }

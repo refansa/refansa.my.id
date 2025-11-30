@@ -9,12 +9,46 @@ isPublished: true
 tags: ['web-development', 'personal-thought']
 ---
 
-I still remember the first time I tried to dip my toe into the world of programming. On that time, I still can't wrap my head around some of the general-purpose language
-like C, C++, Java or the likes (*Yes, I'm just that stupid at the time*) actually works, this was in my early days when I start learning how to code in junior high school.
-Everytime I tried C, I keep shooting my foot with **`segmentation fault`** errors, so I say to myself,
+I still remember the first time I tried to dip my toes into the world of programming. Back then, I couldn't wrap my head around general-purpose languages like C, C++, or Java. I was just starting out in junior high school, and honestly, I felt pretty stupid.
 
-> You know what? Let me just learn how to create a website, it look simple enough. It won't be too hard isn't it? (*But boy do I was wrong...*)
+Every time I tried C, I kept shooting myself in the foot with **`segmentation fault`** errors. It was frustrating, demotivating, and frankly, scary. So, I told myself:
 
-I start off with just HTML, CSS, and a little bit of javascript, it was just a simple personal website. But then I start comparing my work with others.
-I keep mumbling to myself, how do I do this? How do I do that? It was more complicated than I imagined. I thought browser just support HTML, CSS, and JS, so I did my research. But to my surprise,
-<TermWord description="There are other things that are supported by browsers, but I'm talking about the main general support of browser DOM rendering.">**THEY DO JUST THAT**<span className="dark:text-red-400 text-red-600">*</span></TermWord>.
+> You know what? Let me just learn how to create a website. It looks simple enough. It won't be too hard, right? (*But boy, was I wrong...*)
+
+I started off with just HTML, CSS, and a little bit of JavaScript. It was a simple personal website, nothing fancy. But then I started comparing my work with others. I kept asking myself, "How do they do this? How do they do that?"
+
+It turned out to be far more complicated than I imagined. I thought browsers just supported HTML, CSS, and JS. I did my research, and to my surprise, <TermWord description="There are other things that are supported by browsers, but I'm talking about the main general support of browser DOM rendering.">**THEY DO JUST THAT**<span className="dark:text-red-400 text-red-600">*</span></TermWord>.
+
+## The Illusion of Simplicity
+
+The web is built on a lie. A beautiful, convenient lie. We are told that the web is simple: you write some markup, style it, and maybe add a script tag. But the reality of modern web development is a labyrinth of abstractions built on top of abstractions.
+
+We have moved so far away from `index.html` that seeing one in a project root feels almost nostalgic. Instead, we have build steps, transpilers, bundlers, linters, formatters, and a dozen other tools just to get "Hello World" on the screen.
+
+## The Tooling Explosion
+
+Remember when you could just open a file in Notepad, save it, and refresh the browser? Now we have:
+
+- **Webpack**: Because managing dependencies manually is hard, but configuring Webpack is a career in itself.
+- **Babel**: Because we want to use new JavaScript features that browsers don't support yet.
+- **TypeScript**: Because JavaScript's dynamic typing is a double-edged sword that cuts deep.
+- **React/Vue/Svelte/Angular**: Because manipulating the DOM directly is "slow" and "error-prone" (though sometimes, it's just fine).
+- **Next.js/Nuxt/Remix**: Because client-side rendering wasn't enough, so now we need server-side rendering, static site generation, and incremental static regeneration.
+
+And let's not get started on the CSS-in-JS vs. Utility Classes vs. CSS Modules debate. It's a never-ending war where the casualties are our sanity.
+
+## The Great Cycle
+
+What's most amusing is how circular it all is.
+
+1.  **The PHP Era**: We rendered HTML on the server. It was simple, fast, and worked.
+2.  **The SPA Era**: "The server is too slow! Let's do everything in the browser!" So we built massive JavaScript bundles and loading spinners became our new home page.
+3.  **The SSR/RSC Era**: "The browser is doing too much work! Let's move some logic back to the server!"
+
+And now we have React Server Components, which look suspiciously like... PHP. We are reinventing the wheel, but this time the wheel is made of carbon fiber and costs a thousand times more to manufacture.
+
+## Conclusion
+
+Don't get me wrong, I love web development. The power to reach billions of people with a URL is unmatched. But sometimes, I miss the simplicity of just writing code and seeing it work, without needing a degree in configuration management.
+
+The state of web development is weird, chaotic, and often frustrating. But it's also vibrant, evolving, and full of brilliant people trying to solve hard problems. Maybe that's why we stay. Or maybe we're just masochists. Who knows?

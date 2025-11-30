@@ -42,42 +42,42 @@ export function Heading({ children, level, withLink = true, ...rest }: Props) {
   switch (level) {
     case 1:
       return (
-        <h1 {...rest} className={cn(defaultClasses, 'text-4xl md:text-6xl', rest.className)}>
+        <h1 {...rest} className={cn(defaultClasses, 'text-3xl md:text-5xl', rest.className)}>
           {children}
           {withLink ? <HashLink text={children} /> : null}
         </h1>
       )
     case 2:
       return (
-        <h2 {...rest} className={cn(defaultClasses, 'text-3xl md:text-5xl', rest.className)}>
+        <h2 {...rest} className={cn(defaultClasses, 'text-2xl md:text-4xl', rest.className)}>
           {children}
           {withLink ? <HashLink text={children} /> : null}
         </h2>
       )
     case 3:
       return (
-        <h3 {...rest} className={cn(defaultClasses, 'text-2xl md:text-4xl', rest.className)}>
+        <h3 {...rest} className={cn(defaultClasses, 'text-xl md:text-3xl', rest.className)}>
           {children}
           {withLink ? <HashLink text={children} /> : null}
         </h3>
       )
     case 4:
       return (
-        <h4 {...rest} className={cn(defaultClasses, 'text-xl md:text-3xl', rest.className)}>
+        <h4 {...rest} className={cn(defaultClasses, 'text-lg md:text-2xl', rest.className)}>
           {children}
           {withLink ? <HashLink text={children} /> : null}
         </h4>
       )
     case 5:
       return (
-        <h5 {...rest} className={cn(defaultClasses, 'text-lg md:text-2xl', rest.className)}>
+        <h5 {...rest} className={cn(defaultClasses, 'text-base md:text-xl', rest.className)}>
           {children}
           {withLink ? <HashLink text={children} /> : null}
         </h5>
       )
     case 6:
       return (
-        <h6 {...rest} className={cn(defaultClasses, 'text-base md:text-xl', rest.className)}>
+        <h6 {...rest} className={cn(defaultClasses, 'text-sm md:text-lg', rest.className)}>
           {children}
           {withLink ? <HashLink text={children} /> : null}
         </h6>

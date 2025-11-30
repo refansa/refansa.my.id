@@ -1,22 +1,29 @@
 import { Metadata } from 'next'
 
 import DefaultLayout from '@/components/layouts/default-layout'
-import UnderConstruction from '@/components/blocks/error/under-construction'
-import { generateMetadata as generateSEOMetadata } from '@/lib/seo'
+import { getAllProjects } from '@/lib/mdx'
+import { Heading } from '@/components/ui/heading'
+import ProjectList from '@/components/blocks/projects/project-list'
 
-export const metadata: Metadata = generateSEOMetadata({
+export const metadata: Metadata = {
   title: 'Projects',
-  description:
-    'Explore my portfolio of software development projects, including web applications, open source contributions, and more. Coming soon!',
-  tags: ['Projects', 'Portfolio', 'Open Source', 'Web Development', 'Software Projects'],
-  noIndex: true, // Since it's under construction
-})
+  description: 'A collection of my projects and experiments.',
+}
 
 export default function Projects() {
+  const projects = getAllProjects()
+
   return (
     <DefaultLayout>
-      <main className="flex justify-center items-center h-[85vh]">
-        <UnderConstruction />
+      <main className="flex flex-col gap-8 mb-24">
+        <section className="flex flex-col gap-4">
+          <Heading level={1}>Projects</Heading>
+          <p className="text-muted-foreground text-lg">
+            A collection of my projects and experiments.
+          </p>
+        </section>
+
+        <ProjectList projects={projects} />
       </main>
     </DefaultLayout>
   )
